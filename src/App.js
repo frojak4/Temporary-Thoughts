@@ -15,12 +15,12 @@ function App() {
 
   function addThought(thought){
     const newId = generateId()
-    setThoughts(t => [...t, {id: newId, key: newId, text: thought}])
+    setThoughts(t => [...t, {id: newId, text: thought}])
     
   }
 
   function removeThought(currentid){
-    const newThoughts = thoughts.filter((thought, i) => thought.id !== currentid);
+    const newThoughts = thoughts.filter((thought) => thought.id !== currentid);
     setThoughts(newThoughts);
   }
 
@@ -32,7 +32,7 @@ function App() {
       <Input addThought={addThought}/>
       <div className="thoughts">
         {thoughts.map((thought, index) => 
-        <Thought text={thought.text} id={thought.id} key={thought.key} removeThought={removeThought}/>)}
+        <Thought text={thought.text} id={thought.id} key={thought.id} removeThought={removeThought}/>)}
       </div>
     </div>
   );
