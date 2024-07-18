@@ -1,21 +1,39 @@
 import React, {useState, useEffect} from 'react';
 import Input from './Input.jsx';
+import Thought from './Thought.jsx';
 import './App.css';
 
 function App() {
 
   const [thoughts, setThoughts] = useState([]);
 
+  
+
+  const generateId = () => {
+    return thoughts.length ? Math.max(...thoughts.map(thought => thought.id)) + 1 : 0;
+  };
+
   function addThought(thought){
-    setThoughts(t => [...t, thought])
+    const newId = generateId()
+    setThoughts(t => [...t, {id: newId, key: newId, text: thought}])
+    
+  }
+
+  function removeThought(currentid){
+    const newThoughts = thoughts.filter((thought, i) => thought.id !== currentid);
+    setThoughts(newThoughts);
   }
 
   return (
-    <div>
+    <div className="container">
+      <div className="header">
+        Temporary Thoughts
+      </div>
       <Input addThought={addThought}/>
-
-      {thoughts.map((thought) => 
-      <h3>{thought}</h3>)}
+      <div className="thoughts">
+        {thoughts.map((thought, index) => 
+        <Thought text={thought.text} id={thought.id} key={thought.key} removeThought={removeThought}/>)}
+      </div>
     </div>
   );
 }

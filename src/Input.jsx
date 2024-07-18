@@ -11,19 +11,23 @@ function Input(props){
 
     function handleSubmit(event){
         event.preventDefault();
-        props.addThought(text);
-        setText("");
+
+        if(text.length > 0) {
+            props.addThought(text);
+            setText("");
+    }
     }
 
     return(
-    <form onSubmit={handleSubmit}>
+    <form className="inputs" onSubmit={handleSubmit}>
             <input 
             placeholder="Enter your thought" 
             type="text"
             value={text}
             onChange={handleTextChange}/>
             <input
-            type="submit"/>
+            type="submit"
+            className="submit"/>
     </form>
     )
 }

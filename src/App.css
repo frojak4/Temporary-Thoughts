@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    background-color: aquamarine;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    font-size: 5vh;
+    margin: 3vh;
+}
+
+.inputs {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.inputs * {
+    margin: 0.2vw;
+    height: 14vh;
+    width: 50vh;
+    font-size: 4vh;
+}
+
+.submit {
+    width: 14vh;
+    height: 14vh;
+    font-size: 2.5vh;
+}
+
+.thoughts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.thought {
+    width: 65vh; 
+    height: auto;
+    min-height: 14vh;
+    background-color: hsl(0, 79%, 85%);
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    margin: 2vh;
+}
+
+.thought * {
+    font-size: 4vh;
+    font-weight: 100;
+}
